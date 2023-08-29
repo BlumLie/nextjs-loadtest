@@ -10,10 +10,11 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const endOfFetch = new Date().getTime();
 
   const data = await res.json();
-  const endOfJson = new Date().getTime();
+  const endOfParsing = new Date().getTime();
 
   console.log("Request took " + (endOfFetch - start) + " ms");
-  console.log("Json took " + (endOfJson - endOfFetch) + " ms");
+  console.log("JSON parsing took " + (endOfParsing - endOfFetch) + " ms");
+  console.log();
 
   return {
     props: { data },
